@@ -13,7 +13,9 @@ tools{
       }
     }
     stage('Build'){
+      step{
       sh 'mvn clean package'
+      }
     }    
   }
 
