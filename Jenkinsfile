@@ -5,7 +5,7 @@ tools{
 }
   stages{
     stage ('Initialized'){
-      step{
+      steps{
         sh '''
               echo "PATH =${PATH}"
               echo "M2_HOME = ${M2_HOME}"
@@ -13,7 +13,7 @@ tools{
       }
     }
     stage('Build'){
-      step{
+      steps{
       sh 'mvn clean package'
       }
     }    
