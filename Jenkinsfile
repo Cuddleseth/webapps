@@ -25,7 +25,7 @@ tools{
     }
     stage('Deploy to tomcat server'){
       steps{
-       deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:9090/')], contextPath: '/usr/local/tomcat/webapps/', war: '**/*.war'
+       deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:9090/')], contextPath: '/webapps/', war: '**/*.war'
       }
       
     }
