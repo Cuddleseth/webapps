@@ -16,7 +16,19 @@ tools{
       steps{
       sh 'mvn clean package'
       }
-    }    
+      post{
+        success{
+          echo "Archiving the artifact"
+          archiveArtifacts artifacts:'**/taget/*.war'
+        }
+      }
+    }
+    stage('Deploy to tomcat server'){
+      steps{
+        deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:9000/')], contextPath: null, war: '**/*.war'
+      }
+      
+    }
   }
 
   
