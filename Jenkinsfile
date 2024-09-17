@@ -19,7 +19,7 @@ tools{
       post{
         success{
           echo "Archiving the artifact"
-          archiveArtifacts artifacts:'**/taget/*.war'
+          archiveArtifacts artifacts:'**/*.war'
         }
       }
     }
