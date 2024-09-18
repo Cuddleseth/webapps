@@ -2,7 +2,7 @@ pipeline{
 agent any
 tools{
   maven 'Maven'
-  jdk "jdk17" 
+  jdk "jdk" 
 }
   stages{
     stage ('Initialized'){
@@ -22,7 +22,7 @@ tools{
    
      stage ('SAST') {
        tools{
-  jdk "jdk17" 
+  jdk "jdk" 
 }
        environment {
         scannerHome = tool 'sonar' // the name you have given the Sonar Scanner (Global Tool Configuration)
