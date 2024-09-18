@@ -2,6 +2,7 @@ pipeline{
 agent any
 tools{
   maven 'Maven'
+  jdk17
 }
   stages{
     stage ('Initialized'){
@@ -20,6 +21,9 @@ tools{
     }
    
  stage('SonarQube Analsyis') {
+   tools{
+  jdk17
+}
    environment {
         scannerHome = tool 'sonar' // the name you have given the Sonar Scanner (Global Tool Configuration)
     }
