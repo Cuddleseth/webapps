@@ -2,7 +2,6 @@ pipeline{
 agent any
 tools{
   maven 'Maven'
-  jdk "jdk" 
 }
   stages{
     stage ('Initialized'){
@@ -20,10 +19,19 @@ tools{
       }
     }
    
+ stage('SonarQube Analsyis') {
+   environment {
+        scannerHome = tool 'sonar' // the name you have given the Sonar Scanner (Global Tool Configuration)
+    }
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh ''' $scannerHome/bin/sonar-scanner -Dsonar.projectName=Webapps -Dsonar.url=http://172.20.10.11:9000/ \
+                    -Dsonar.login=squ_e7bbf58f47b1bbafab0230566948dc32fd329618 -Dsonar.projectKey=Webapps -Dsonar.java.binaries=. '''
+                }
+            }
+        }
+
      stage ('SAST') {
-       tools{
-  jdk "jdk" 
-}
        environment {
         scannerHome = tool 'sonar' // the name you have given the Sonar Scanner (Global Tool Configuration)
     }
