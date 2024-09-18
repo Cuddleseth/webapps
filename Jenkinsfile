@@ -49,6 +49,7 @@ tools{
      
     stage('Build'){
       steps{
+        sh 'mvn clean install'
       sh 'mvn clean package'
       }
       post{
