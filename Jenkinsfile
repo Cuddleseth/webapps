@@ -44,7 +44,7 @@ tools{
       post{
         success{
           echo "Archiving the artifact"
-          archiveArtifacts artifacts:'**/*.war'
+         // archiveArtifacts artifacts:'**/*.war'
         }
       }
     }
