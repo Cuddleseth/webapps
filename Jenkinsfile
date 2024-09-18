@@ -41,12 +41,7 @@ tools{
       steps{
        sh 'mvn clean package'
       }
-      post{
-        success{
-          echo "Archiving the artifact"
-         // archiveArtifacts artifacts:'**/*.war'
-        }
-      }
+     
     }
     stage('Deploy to tomcat server'){
       steps{
