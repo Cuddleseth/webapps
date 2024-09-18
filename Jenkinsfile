@@ -18,6 +18,12 @@ tools{
        dependencyCheck additionalArguments: ''' --scan ./ --format HTML --failOnCVSS 8 --nvdApiKey 63ef571c-a22c-4196-b12c-f8f833e72274''', odcInstallation: 'DP-Check'
       }
     }
+        stage('SonarQube Analsyis') {
+            steps {
+    withSonarQubeEnv() {
+  sh "ls ${scannerHome}"
+  sh "echo ${scannerHome}"
+}}}
      stage('SonarQube Analsyis') {
             steps {
                 withSonarQubeEnv('sonar') {
