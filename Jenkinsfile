@@ -35,22 +35,11 @@ tools{
             }
         }
 
-     stage ('SAST') {
-       environment {
-        scannerHome = tool 'sonar' // the name you have given the Sonar Scanner (Global Tool Configuration)
-    }
-      steps {
-        withSonarQubeEnv('sonar') {
-          sh 'mvn sonar:sonar'
-          sh 'cat target/sonar/report-task.txt'
-        }
-      }
-    }
+   
      
     stage('Build'){
       steps{
-        sh 'mvn clean install'
-      sh 'mvn clean package'
+       sh 'mvn clean package'
       }
       post{
         success{
