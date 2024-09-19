@@ -13,6 +13,13 @@ pipeline{
             '''
           }
         } 
+           stage('Check-Git-Secret'){
+      steps{
+        sh'rm trufflehog || true'
+        sh'docker run gesellix/trufflehog --json https://github.com/Cuddleseth/webapps.git > trufflehog'
+        sh 'cat trufflehog'
+      }
+    }
         
         stage('Check Dependency'){
           steps{
