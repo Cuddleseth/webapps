@@ -16,7 +16,7 @@ tools{
     
     stage('Check Dependency'){
       steps{
-       dependencyCheck additionalArguments: ''' --scan ./ --format HTML --nvdApiKey ea1dc806-fa71-43f2-b8ad-2b6f4d091ff7''', odcInstallation: 'DP-Check'
+       dependencyCheck additionalArguments: ''' --scan ./ --format HTML --nvdApiKey "ea1dc806-fa71-43f2-b8ad-2b6f4d091ff7"''', odcInstallation: 'DP-Check'
       }
     }
    
