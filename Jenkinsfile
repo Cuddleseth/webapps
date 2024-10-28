@@ -31,7 +31,7 @@ pipeline{
         }
                 steps {
                     withSonarQubeEnv('sonar') {
-                        sh ''' $scannerHome/bin/sonar-scanner -Dsonar.projectName=Webapps -Dsonar.url=http://172.28.208.1:9000/ \
+                        sh ''' $scannerHome/bin/sonar-scanner -Dsonar.projectName=Webapps -Dsonar.url=http://172.21.0.1/:9000/ \
                         -Dsonar.login=sqp_f8af66297789daeb6492835d07a6d2acef1cdd8b -Dsonar.projectKey=Webapps -Dsonar.java.binaries=. '''
                     }
                 }
@@ -47,14 +47,14 @@ pipeline{
         }
         stage('Deploy to tomcat server'){
           steps{
-          deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://172.28.208.1:9090/')], contextPath: '/', war: '**/*.war'
+          deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://172.21.0.1:9090/')], contextPath: '/', war: '**/*.war'
             
         }
       }
     stage ('DAST') {
           steps {
             sshagent(['zap']) {
-            sh 'ssh -o  StrictHostKeyChecking=no ubuntu@3.81.59.46 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://172.28.208.1:9090/" || true'
+            sh 'ssh -o  StrictHostKeyChecking=no ubuntu@3.81.59.46 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://172.21.0.1:9090/" || true'
             }
           }
         }
