@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>RAWBANK TESTING DEVSECOP PIPELINE - testing</title>
+    <title>RAWBANK TESTING DEVSECOP PIPELINE </title>
 
 
     <!-- Custom styles for this template -->
@@ -32,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Web App for Developers</a>
+            <a class="navbar-brand" href="#">Web App for Rawbank Developers</a>
         </div>
         <div class="navbar-collapse collapse">
             <form class="navbar-form navbar-right" role="form">
@@ -52,7 +52,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1>SECURITY BY DESIGN</h1>
-        <p>RAWBANK TESTING DEVSECOPS PIPELINE</p>
+        <p>RAWBANK TESTING DEVSECOPS PIPELINE (edited)</p>
         <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
     </div>
 </div>
