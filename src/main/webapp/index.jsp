@@ -52,7 +52,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1>SECURITY BY DESIGN</h1>
-        <p>RAWBANK TESTING DEVSECOPS PIPELINE (edited)</p>
+        <p>RAWBANK TESTING DEVSECOPS PIPELINE</p>
         <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
     </div>
 </div>
