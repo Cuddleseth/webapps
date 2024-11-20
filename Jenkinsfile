@@ -19,12 +19,7 @@ pipeline{
           dependencyCheck additionalArguments: ''' --scan ./ --format HTML ''', odcInstallation: 'DP-Check'
           }
         }
-          stage('Check git history'){
-		steps{
-			echo 'running talisman to check project history for secrets'
-			sh '.talisman/bin/talisman_linux_amd64 --scan'
-		}
-	} 
+     
 	      stages {
     stage('talisman check') {
       steps {
