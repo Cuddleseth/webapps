@@ -51,8 +51,8 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h1>SECURITY BY DESIGN demo DEVSECOPS</h1>
-        <p>RAWBANK TESTING DEVSECOPS PIPELINE 2024</p>
+        <h1>SECURITY BY DESIGN </h1>
+        <p>RAWBANK TESTING DEVSECOPS PIPELINE DEVSECOPS</p>
         <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
     </div>
 </div>
