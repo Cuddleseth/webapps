@@ -19,7 +19,12 @@ pipeline {
         sh 'docker run gesellix/trufflehog --json https://github.com/cehkunal/webapp.git > trufflehog'
         sh 'cat trufflehog'
       }
-    }
+    }	stage('Check git history'){
+		steps{
+			echo 'running talisman to check project history for secrets'
+			sh '~/.talisman/bin/talisman_linux_amd64 --scan'
+		}
+	}  
     
     stage ('Source Composition Analysis') {
       steps {
