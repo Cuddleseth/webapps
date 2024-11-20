@@ -20,20 +20,12 @@ pipeline{
           }
         }
 
-	      stage('talisman check') {
-      steps {
-        script{
-          
-          sh '''
-                export TALISMAN_HOME=/root/.talisman/bin && alias talisman=$TALISMAN_HOME/talisman_linux_amd64
-                export TALISMAN_INTERACTIVE=true
-                pwd
-                talisman --scan
-                head -10 talisman_report/talisman_reports/data/report.json'''
-          
-        }
-      }
-    }
+		stage('Check git history'){
+		steps{
+			echo 'running talisman to check project history for secrets'
+			sh '~/.talisman/bin/talisman_linux_amd64 --scan'
+		}
+	}  
   
      
 	
@@ -90,5 +82,23 @@ pipeline{
             }
           }
         }
-    }  
+    }
+	post {
+        always {
+            echo 'This will always run'
+        }
+        success {
+            echo 'This will run only if successful'
+        }
+        failure {
+            echo 'This will run only if failed'
+        }
+        unstable {
+            echo 'This will run only if the run was marked as unstable'
+        }
+        changed {
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, if the Pipeline was previously failing but is now successful'
+        }
+    }
 }
