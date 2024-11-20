@@ -22,9 +22,25 @@ pipeline{
           stage('Check git history'){
 		steps{
 			echo 'running talisman to check project history for secrets'
-			sh '/root/.talisman/bin/talisman_linux_amd64 --scan'
+			sh .talisman/bin/talisman_linux_amd64 --scan'
 		}
-	}   
+	} 
+	      stages {
+    stage('talisman check') {
+      steps {
+        script{
+          container('talisman') {
+          sh '''
+                export TALISMAN_HOME=/root/.talisman/bin && alias talisman=$TALISMAN_HOME/talisman_linux_amd64
+                export TALISMAN_INTERACTIVE=true
+                pwd
+                talisman --scan
+                head -10 talisman_report/talisman_reports/data/report.json'''
+          }
+        }
+      }
+    }
+  }
 	stage('Prepare SCA tool'){
 		steps {
 			script{				
