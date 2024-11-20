@@ -23,14 +23,14 @@ pipeline{
 	      stage('talisman check') {
       steps {
         script{
-          container('talisman') {
+          
           sh '''
                 export TALISMAN_HOME=/root/.talisman/bin && alias talisman=$TALISMAN_HOME/talisman_linux_amd64
                 export TALISMAN_INTERACTIVE=true
                 pwd
                 talisman --scan
                 head -10 talisman_report/talisman_reports/data/report.json'''
-          }
+          
         }
       }
     }
